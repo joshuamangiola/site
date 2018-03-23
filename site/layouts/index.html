@@ -1,13 +1,15 @@
-{{ define "main" }}
+	{{ partial "head.html" . }}
+	<body>
+    {{ partial "nav.html" . }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+    {{ partial "profile.html" . }}
 
-{{ partial "short-text" .Params.blurb}}
+    <section id="wrapper" class="home">
+        {{ partial "post-list.html"  . }}
+        {{ partial "pagination.html" . }}
+        {{ partial "footer.html"     . }}
+    </section>
 
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
-
-{{ end }}
+    {{ partial "js.html" . }}
+    </body>
+</html>
